@@ -28,3 +28,6 @@ skills:
 
   ## Loud noises (https://github.com/opsdroid/skill-loudnoises)
   loudnoises: {}
+
+  ## Devtools (https://github.com/opsdroid/skill-devtools)
+  devtools: {}
