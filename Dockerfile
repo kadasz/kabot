@@ -1,7 +1,12 @@
 FROM phusion/baseimage:latest
-MAINTAINER Karol D Sz
+MAINTAINER Karol D. Sz
 
 ENV TZ Europe/Warsaw
+ENV APP_PORT 8484
+ENV APP_HOME /opt
+ENV APP_CONF configuration.yaml
+
+WORKDIR $APP_HOME
 
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update; apt-get -q -y --no-install-recommends install psmisc curl wget git less vim net-tools lsof iputils-ping iproute2 tzdata build-essential
@@ -22,5 +27,6 @@ RUN touch /etc/service/cron/down
 # remove sshd service and regenerate ssh keys
 RUN rm -rf /etc/service/sshd /etc/my_init.d/00_regen_ssh_host_keys.sh
 
-WORKDIR /opt
+COPY $APP_CONF $APP_HOME
+
 CMD ["/sbin/my_init"]

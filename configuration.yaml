@@ -1,0 +1,31 @@
+logging:
+  level: debug
+
+welcome-message: true
+
+# Web server
+web:
+  host: "0.0.0.0"
+  port: 8484
+
+## Parsers
+parsers: []
+
+## Connector modules
+connectors:
+  - name: websocket
+    bot-name: "kabot"
+
+## Skill modules
+skills:
+  ## API.AI (https://github.com/opsdroid/skill-apiai)
+  - name: apiai
+
+  ## Last seen (https://github.com/opsdroid/skill-seen)
+  - name: seen
+
+  ## Dance (https://github.com/opsdroid/skill-dance)
+  - name: dance
+
+  ## Loud noises (https://github.com/opsdroid/skill-loudnoises)
+  - name: loudnoises
