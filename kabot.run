@@ -1,0 +1,4 @@
+#!/bin/bash
+set -e
+
+exec /sbin/setuser $APP_USER opsdroid start -f $APP_HOME/$APP_CONF 2>&1
