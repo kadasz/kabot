@@ -13,8 +13,14 @@ RUN pip3 install --upgrade pip
 
 RUN pip3 install opsdroid
 
-RUN apt-get clean
-RUN rm -rf /tmp/* /var/tmp/* /var/lib/apt/lists/*
+# cleanup
+RUN apt-get autoremove -y; apt-get clean all
+RUN rm -rf /root/.cache /tmp/* /var/tmp/* /var/lib/apt/lists/*; sync
+
+# disable cron service
+RUN touch /etc/service/cron/down
+# remove sshd service and regenerate ssh keys
+RUN rm -rf /etc/service/sshd /etc/my_init.d/00_regen_ssh_host_keys.sh
 
 WORKDIR /opt
 CMD ["/sbin/my_init"]
