@@ -8,24 +8,23 @@ web:
   host: "0.0.0.0"
   port: 8484
 
-## Parsers
-parsers: []
-
 ## Connector modules
 connectors:
-  - name: websocket
+ 
+  websocket:
     bot-name: "kabot"
 
 ## Skill modules
 skills:
+
   ## API.AI (https://github.com/opsdroid/skill-apiai)
-  - name: apiai
+  apiai: {}
 
   ## Last seen (https://github.com/opsdroid/skill-seen)
-  - name: seen
+  seen: {}
 
   ## Dance (https://github.com/opsdroid/skill-dance)
-  - name: dance
+  dance: {}
 
   ## Loud noises (https://github.com/opsdroid/skill-loudnoises)
-  - name: loudnoises
+  loudnoises: {}
